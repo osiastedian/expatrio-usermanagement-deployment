@@ -1,6 +1,8 @@
 [submodule "expatrio-usermanagement"]
 	path = expatrio-usermanagement
 	url = git@github.com:osiastedian/expatrio-usermanagement.git
+	branch = master
 [submodule "expatrio-usermanagement-ui"]
 	path = expatrio-usermanagement-ui
 	url = git@github.com:osiastedian/expatrio-usermanagement-ui.git
+	branch = master

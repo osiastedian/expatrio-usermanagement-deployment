@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  user-management-api:
+    image: expatrio/usermanagement-api:0.0.1-SNAPSHOT
+    ports:
+      - 8080:8080
+    depends_on:
+      - user-management-database
+  user-management-ui:
+    image: nginx:alpine
+    volumes: 
+      - ./expatrio-usermanagement-ui/dist/usermanager:/usr/share/nginx/html
+    ports: 
+      - 4200:80
+  user-management-database:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=usermanager
+      - POSTGRES_USER=usermanager
+      - POSTGRES_DB=usermanager
+    volumes:
+      - expatrio_usermanagement_db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+volumes:
+  expatrio_usermanagement_db_data:

@@ -11,6 +11,7 @@ services:
     image: nginx:alpine
     volumes: 
       - ./expatrio-usermanagement-ui/dist/usermanager:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
     ports: 
       - 4200:80
   user-management-database:
